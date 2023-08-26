@@ -1,0 +1,44 @@
+Project Overview:
+
+The project involves designing an elevator control system in Verilog.
+The elevator can move between four floors labeled A, B, C, and D.
+The elevator is controlled by inputs (ra, rb, rc, rd) representing requests from each floor.
+The output floor indicates the current floor of the elevator.
+Module Structure:
+
+The main module is named elevator.
+It takes inputs clk, rst, ra, rb, rc, rd, and outputs [1:0] floor.
+States and Direction:
+
+The elevator system has states A, B, C, and D, corresponding to the different floors.
+The elevator can move in two directions: UP and DOWN.
+The direction is controlled by the dir signal.
+The elevator moves based on inputs and direction:
+When in state A, moves to B, C, or D depending on the input and direction.
+When in state B, moves to A, C, or D based on input and direction.
+Similar movement patterns for states C and D.
+State Transition Logic:
+
+State transitions occur on the rising edge of the clock (clk).
+Transitions are also influenced by the reset signal (rst).
+Nested case statements are used to handle different conditions for transitions.
+Direction Logic:
+
+The elevator direction is determined by the dir signal.
+Direction changes occur on the rising edge of the clock.
+Similar to state transitions, nested case statements control the direction based on the current state and inputs.
+Input Handling:
+
+Inputs ra, rb, rc, rd represent floor requests.
+Input values are updated sequentially in the testbench to simulate requests.
+The elevator responds to the requests by transitioning states and changing direction.
+Testbench:
+
+A SystemVerilog testbench is provided for verification.
+Clock (clk), reset (rst), and input requests are simulated.
+Assertions are used to verify the correctness of the elevator's behavior.
+Coverage points help track the scenarios exercised during simulation.
+Verification and Adjustments:
+
+Assertions and coverage points need to be customized based on expected behavior.
+Simulation results and waveform output (elevator_tb.vcd) can be analyzed to verify the module's correctness.
